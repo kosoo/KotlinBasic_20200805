@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         clickMeBtn.setOnClickListener {
 //        이 중괄호 내부의 코드 => clickMeBtn이 눌리면 실행될 코드
-            Log.d("버튼클릭","ClickMe버튼 눌림!")
+            Log.d("버튼클릭", "ClickMe버튼 눌림!")
             Toast.makeText(this, "Click Me 버튼 눌림", Toast.LENGTH_SHORT).show()
         }
 
@@ -30,9 +30,21 @@ class MainActivity : AppCompatActivity() {
         copyBtn.setOnClickListener {
 //            Edt 에 입력된 내용을 받아와서 (임시 저장)
             val inputMessage = messageEdt.text.toString()
+            /*val inputMessage2 = messageEdt.toString().toInt()*/
 
+//            입력한 내용이 5글자가 안된다면, 토스트로 5자이상 입력하라고 안내.
+//            5자는 넘지만, 10글자가 안되면 => Log로 10글자 안된다고 출력
+//            그외의 상황에서는, 문구로 반영
+            if (inputMessage.length < 5) {
+                Toast.makeText(this, "5글자 이상으로 입력해주세요", Toast.LENGTH_SHORT).show()
+            } else if (inputMessage.length < 10) {
+//                5글자는 넘지만 10글자가 안되는 경우
+                Log.d("입력글자수", "5글자 이상 10글자 미만")
+            } else {
 //            Txt에 문구로 반영
-            copyResultTxt.text = inputMessage
+                copyResultTxt.text = inputMessage
+            }
+
 
         }
     }
