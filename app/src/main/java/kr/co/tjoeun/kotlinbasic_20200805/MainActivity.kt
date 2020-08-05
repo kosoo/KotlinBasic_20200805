@@ -13,9 +13,12 @@ class MainActivity : AppCompatActivity() {
 //        xml에 그려둔 clickMe 버튼이 눌렸다는것을 감지하고 싶다.
 
         clickMeBtn.setOnClickListener {
-
 //        이 중괄호 내부의 코드 => clickMeBtn이 눌리면 실행될 코드
             Log.d("버튼클릭","ClickMe버튼 눌림!")
+        }
+
+        secondBtn.setOnClickListener {
+            Log.d("버튼눌림", "두번째 버튼 눌림!!")
         }
     }
 }
